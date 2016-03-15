@@ -1,0 +1,40 @@
+# userdata1 = process name
+# userdata2 = pid
+# userdata3 = frontend_name
+# userdata4 = backend_name
+# userdata5 = server_name
+# userdata6 = total time spent waiting for queues/total time spent waiting for connection/total time elapsed
+# userdata7 = bytes_read
+# userdata8 = termination state
+# userdata9 = actconn/feconn/beconn/srv_conn/retries srv_queue/backend_queue
+[[regexes]]
+  name = "haproxy tcp log"
+  description = ""
+  re = '''^(?P<date>\SYSLOG_DATE)\s(\S+|\IPV4)\s(?P<udone>\S+)\[(?P<udtwo>\d+)\]:\s(?P<resolvsrcip>\IPV4):(?P<srcport>\PORT)\s\[.*\]\s(?P<udthree>\S+)\s(?P<udfour>\S+)\/(?P<resolvdstip>\S+)\s(?P<udsix>\d+\/\d+\/\d+)\s(?P<udseven>\d+)\s(?P<udeight>\S+)\s(?P<udnine>\d+\/\d+\/\d+\/\d+\/\d+\s\d+\/\d+)'''
+  hide = false
+
+[options]
+  show_matches = true
+  show_misses = false
+  show_all_matches = false
+  match_sample_size = 0
+  show_multiple_matches = false
+
+[plugin]
+  id = 81875
+  name = "haproxy"
+  version = "v1.0.0"
+  description = ""
+  log_file = "/var/log/haproxy.log"
+  website = "https://gitlab.sedara.io/av-plugins/haproxy"
+  log_format = "www.haproxy.org/download/1.5/doc/configuration.txt"
+
+[vendor]
+  name = "HAProxy"
+  model = "HAProxy"
+  version = "-"
+  per_asset = true
+
+[author]
+  name = "Sedara, LLC."
+  email = "devs@sedarasecurity.com"

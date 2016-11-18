@@ -36,7 +36,7 @@
   name = "HAProxy HTTP Event"
   rule_block_name = "HAProxy HTTP Event"
   description = ""
-  re = '''^(?P<date>\SYSLOG_DATE)\s(?P<device>(\S+|\IPV4))\s(?P<process_name>\S+)\[(?P<pid>\d+)\]:\s(?P<srcip>\IPV4):(?P<srcport>\PORT)\s\[.*\]\s(?P<udone>\S+)\s(?P<udtwo>\S+)\/(?P<udthree>\S+)\s(?P<timers>\d+\/\d+\/\d+\/\d+\/\d+)\s(?P<pluginid>\d+)\s(?P<bytes_read>\d+)\s(?P<cap_req_cookie>(-|\S+))\s(?P<cap_resp_cookie>(-|\S+))\s(?P<termination_state>(-{4}|\S+))\s(?P<conns>\d+\/\d+\/\d+\/\d+\/\d+)\s(?P<queues>\d+\/\d+)(\s\{(?P<udfour>.*)\})?(\s\{(?P<udfive>.*)\})?\s\"(?P<udeight>(?P<udsix>\S+)\s(?P<udseven>\S+).*)\"'''
+  re = '''^(?P<date>\SYSLOG_DATE)\s(?P<dstip>(\S+|\IPV4))\s(?P<process_name>\S+)\[(?P<pid>\d+)\]:\s(?P<srcip>\IPV4):(?P<srcport>\PORT)\s\[.*\]\s(?P<udone>\S+)\s(?P<udtwo>\S+)\/(?P<udthree>\S+)\s(?P<timers>\d+\/\d+\/\d+\/\d+\/\d+)\s(?P<pluginsid>\d+)\s(?P<bytes_read>\d+)\s(?P<cap_req_cookie>(-|\S+))\s(?P<cap_resp_cookie>(-|\S+))\s(?P<termination_state>(-{4}|\S+))\s(?P<conns>\d+\/\d+\/\d+\/\d+\/\d+)\s(?P<queues>\d+\/\d+)(\s\{(?P<udfour>.*)\})?(\s\{(?P<udfive>.*)\})?\s\"(?P<udeight>(?P<udsix>\S+)\s(?P<udseven>\S+).*)\"'''
   hide = false
   [regexes.force_field_values]
     plugin_sid="$pluginsid"
@@ -51,7 +51,7 @@
 [plugin]
   id = 81875
   name = "haproxy"
-  version = "v1.1.0"
+  version = "v1.1.1"
   description = ""
   log_file = "/var/log/haproxy.log"
   website = "https://gitlab.sedara.io/av-plugins/haproxy"

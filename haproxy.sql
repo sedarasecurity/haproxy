@@ -1,6 +1,6 @@
 DELETE FROM plugin WHERE id = "81875";
 DELETE FROM plugin_sid where plugin_id = "81875";
-INSERT INTO plugin (id, type, name, description, product_type, vendor) VALUES (81875, 1, 'haproxy', 'HAProxy', NULL, 'HAProxy');
+INSERT INTO plugin (id, type, name, description, product_type, vendor) VALUES (81875, 1, 'haproxy', 'HAProxy', 222, 'HAProxy');
 -- INSERT IGNORE INTO software_cpe (cpe, name, version, line, vendor, plugin) VALUES ('cpe:/o:', 'HAProxy','-','','HAProxy', 'haproxy:81875');
 INSERT INTO `plugin_sid` (`plugin_id`,`sid`,`category_id`,`subcategory_id`,`reliability`,`priority`,`name`) VALUES (81875, 1, 3, 119, 1, 1, 'HAProxy TCP Session');
 INSERT INTO `plugin_sid` (`plugin_id`,`sid`,`category_id`,`subcategory_id`,`reliability`,`priority`,`name`) VALUES (81875, 200, 13, 109, 1, 1, 'HAProxy HTTP: OK');

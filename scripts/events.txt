@@ -1,0 +1,35 @@
+200 HAProxy HTTP: OK
+201 HAProxy HTTP: Created
+202 HAProxy HTTP: Accepted
+203 HAProxy HTTP: Non-Authorative Information
+204 HAProxy HTTP: No Content
+205 HAProxy HTTP: Reset Content
+206 HAProxy HTTP: Partial Content
+300 HAProxy HTTP: Multiple Choices
+301 HAProxy HTTP: Moved Permanently
+302 HAProxy HTTP: Moved Temporarily
+303 HAProxy HTTP: See Other
+304 HAProxy HTTP: Not Modified
+305 HAProxy HTTP: Use Proxy
+400 HAProxy HTTP: Bad Request
+401 HAProxy HTTP: Authorization Required
+402 HAProxy HTTP: Payment Required
+403 HAProxy HTTP: Forbidden
+404 HAProxy HTTP: Not Found
+405 HAProxy HTTP: Method Not Allowed
+406 HAProxy HTTP: Not Acceptable (encoding)
+407 HAProxy HTTP: Proxy Authentication Required
+408 HAProxy HTTP: Request Timed Out
+409 HAProxy HTTP: Conflicting Request
+410 HAProxy HTTP: Gone
+411 HAProxy HTTP: Content Length Required
+412 HAProxy HTTP: Precondition Failed
+413 HAProxy HTTP: Request Entity Too Long
+414 HAProxy HTTP: Request URI Too Long
+415 HAProxy HTTP: Unsupported Media Type
+500 HAProxy HTTP: Internal Server Error
+501 HAProxy HTTP: Not implemented
+502 HAProxy HTTP: Bad Gateway
+503 HAProxy HTTP: Service Unavailable
+504 HAProxy HTTP: Gateway Timeout
+505 HAProxy HTTP: HTTP Version Not Supported

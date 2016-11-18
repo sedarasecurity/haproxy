@@ -9,9 +9,37 @@
 # userdata9 = actconn/feconn/beconn/srv_conn/retries srv_queue/backend_queue
 [[regexes]]
   name = "haproxy tcp log"
+  rule_block_name = "haproxy tcp log"
   description = ""
-  re = '''^(?P<date>\SYSLOG_DATE)\s(\S+|\IPV4)\s(?P<udone>\S+)\[(?P<udtwo>\d+)\]:\s(?P<resolvsrcip>\IPV4):(?P<srcport>\PORT)\s\[.*\]\s(?P<udthree>\S+)\s(?P<udfour>\S+)\/(?P<resolvdstip>\S+)\s(?P<udsix>\d+\/\d+\/\d+)\s(?P<udseven>\d+)\s(?P<udeight>\S+)\s(?P<udnine>\d+\/\d+\/\d+\/\d+\/\d+\s\d+\/\d+)'''
+  re = '''^(?P<date>\SYSLOG_DATE)\s(\S+|\IPV4)\s(?P<udone>\S+)\[(?P<udtwo>\d+)\]:\s(?P<srcip>\IPV4):(?P<srcport>\PORT)\s\[.*\]\s(?P<udthree>\S+)\s(?P<udfour>\S+)\/(?P<dstip>\S+)\s(?P<udsix>\d+\/\d+\/\d+)\s(?P<udseven>\d+)\s(?P<udeight>\S+)\s(?P<udnine>\d+\/\d+\/\d+\/\d+\/\d+\s\d+\/\d+)'''
   hide = false
+  [regexes.force_field_values]
+    plugin_sid="1"
+
+# process_name = process name
+# pid = pid
+# userdata1 = frontend_name
+# userdata2 = backend_name
+# userdata3 = server_name
+# userdata4 = total time spent waiting for client to send a full http request/total time spent waiting for queues/wait time for connection to establish to final server / wait time spent on server sending a full http response / time between the accept and the last close
+# pluginid = status_code
+# bytes_read = bytes_read
+# captured_request_cookie
+# captured_response_cookie
+# termination_state
+# actconn/feconn/beconn/srv_conn/retries
+# srv_queue/backend_queue
+# captured_request_headers
+# captured_response_headers
+# http_request
+[[regexes]]
+  name = "HAProxy HTTP Event"
+  rule_block_name = "HAProxy HTTP Event"
+  description = ""
+  re = '''^(?P<date>\SYSLOG_DATE)\s(?P<device>(\S+|\IPV4))\s(?P<process_name>\S+)\[(?P<pid>\d+)\]:\s(?P<srcip>\IPV4):(?P<srcport>\PORT)\s\[.*\]\s(?P<udone>\S+)\s(?P<udtwo>\S+)\/(?P<udthree>\S+)\s(?P<timers>\d+\/\d+\/\d+\/\d+\/\d+)\s(?P<pluginid>\d+)\s(?P<bytes_read>\d+)\s(?P<cap_req_cookie>(-|\S+))\s(?P<cap_resp_cookie>(-|\S+))\s(?P<termination_state>(-{4}|\S+))\s(?P<conns>\d+\/\d+\/\d+\/\d+\/\d+)\s(?P<queues>\d+\/\d+)(\s\{(?P<udfour>.*)\})?(\s\{(?P<udfive>.*)\})?\s\"(?P<udeight>(?P<udsix>\S+)\s(?P<udseven>\S+).*)\"'''
+  hide = false
+  [regexes.force_field_values]
+    plugin_sid="$pluginsid"
 
 [options]
   show_matches = true
@@ -23,7 +51,7 @@
 [plugin]
   id = 81875
   name = "haproxy"
-  version = "v1.0.0"
+  version = "v1.1.0"
   description = ""
   log_file = "/var/log/haproxy.log"
   website = "https://gitlab.sedara.io/av-plugins/haproxy"
